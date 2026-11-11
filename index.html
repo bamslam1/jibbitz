@@ -11,11 +11,17 @@
   <link rel="stylesheet" href="Styles/styles.css">
 </head>
 <body>
+  <input type="radio" name="theme-group" id="force-dark" class="theme-trigger">
+  <input type="radio" name="theme-group" id="force-light" class="theme-trigger">
+
+  <label for="force-dark" class="btn-dark theme-btn">Dark Mode</label>
+  <label for="force-light" class="btn-light theme-btn">Light Mode</label>
 
   <header class="site-header">
     <div class="brand">Inpiring Jibbitz Co.</div>
   </header>
 
+  <div class="theme-effect">
   <main class="container">
     <section class="prices">
       <h2>PRICES</h2>
@@ -29,8 +35,9 @@
   <footer class="container contact">
     <h2>Contact Us</h2>
     <p><a href="tel:+18001234567">1 800 123 4567</a></p>
-    <p><a href="mailto:ba02.mcdougall@surreyschools.ca">ba02.mcdougall@surreyschools.ca</a></p>
+    <p><a href="mailto:ba02.mcdougall@surreyschools.ca" id="mail">ba02.mcdougall@surreyschools.ca</a></p>
   </footer>
-
+  </div>
+  <a href="https://bamslam1.github.io/my-projects" class="games-btn" target="_blank" rel="noopener noreferer">Games</a>
 </body>
 </html>
