@@ -1,3 +1,45 @@
+:root {
+  --bg-color: rgb(244, 243, 242);
+  --text-color: rgb(25, 25, 25);
+  --show-light-btn: none;
+  --show-dark-btn: inline-block;
+  --hyperlink-color: #2424ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: rgb(25, 25, 25);
+    --text-color: rgb(244, 243, 242);
+    --show-light-btn: inline-block;
+    --show-dark-btn: none;
+  }
+}
+
+:root:has(#force-dark:checked) {
+  --bg-color: rgb(25, 25, 25);
+  --text-color: rgb(244, 243, 242);
+  --show-light-btn: inline-block;
+  --show-dark-btn: none;
+  --hyperlink-color: #006aff;
+}
+
+:root:has(#force-light:checked) {
+  --bg-color: rgb(244, 243, 242);
+  --text-color: rgb(25, 25, 25);
+  --show-light-btn: none;
+  --show-dark-btn: inline-block;
+  --hyperlink-color: #0000ff;
+}
+
+.theme-trigger {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-dark { display: var(--show-dark-btn); }
+.btn-light { display: var(--show-light-btn); }
+
 * {
   box-sizing: border-box;
 }
@@ -8,10 +50,63 @@ body {
   display: flex;
   flex-direction: column;
   border-top: 2px solid #4a4a4a;
-  background: #ffffff;
+  background: var(--bg-color);
   color: #000000;
   font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
   font-size: clamp(1.25rem, 2.2vw, 2.25rem);
+  transition: background-color 0.3s ease
+}
+
+.theme-effect {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+
+button {
+  padding: 1.5rem 1.5rem;
+  font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.25rem, 2.2vw, 2.25rem);
+  background: linear-gradient(90deg, #66dc89 0%, #5be0bf 100%);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  max-width: 100%;
+  white-space: normal;
+  cursor: pointer;
+}
+
+.theme-btn,
+.games-btn {
+  box-sizing: border-box;
+  width: min(280px, 50vw);
+  padding: 0.35em 1rem;
+
+  font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+  font-size: min(40px, 6vw);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+
+  background: linear-gradient(90deg, #66c683 0%, #5be0bf 100%);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.theme-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 25px;
+  z-index: 9999;
+}
+
+.games-btn {
+  position: relative;
+  margin: 0 auto 20px;   /* auto on both sides centers it; 20px below */
+  padding: 20px 20px;
+  text-decoration: none;
 }
 
 /* ---------- Header pill ---------- */
